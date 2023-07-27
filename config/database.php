@@ -45,11 +45,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => '127.0.0.1',
-            'port' => '8889',
+            'host' => 'arn:aws:rds:us-east-1:125955205715:db:anoop',
+            'port' => '3306',
             'database' => 'anoop',
-            'username' => 'root',
-            'password' => 'root',
+            'username' => 'admin',
+            'password' => 'Adoos@123',
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_general_ci',
@@ -57,7 +57,6 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
