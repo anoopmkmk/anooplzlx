@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Exception;
 
 use File;
 
@@ -55,8 +56,12 @@ class HomeController extends Controller
         //Move Uploaded File
        
         
-
-        $filename = $file->getClientOriginalName();
-        $file->storeAs('s3',$filename);
+        try {
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('s3',$filename);
+        } catch (Exception $ex) {
+            dd($ex);
+        }
+       
     }
 }
