@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use File;
 
@@ -56,6 +57,6 @@ class HomeController extends Controller
         
 
         $filename = $file->getClientOriginalName();
-        $file->storeAs('public/images',$filename);
+        $file->storeAs('s3',$filename);
     }
 }
