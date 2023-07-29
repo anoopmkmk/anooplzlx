@@ -54,14 +54,20 @@ class HomeController extends Controller
         echo public_path();
         
         //Move Uploaded File
+
+        $imageName = time().'.'.$request->image->extension();  
+     
+        $path = Storage::disk('s3')->put('images', $request->image);
+        $path = Storage::disk('s3')->url($path);
+  
        
         
-        try {
-            $filename = $file->getClientOriginalName();
-            $file->storeAs('s3',$filename);
-        } catch (Exception $ex) {
-            dd($ex);
-        }
+        // try {
+        //     $filename = $file->getClientOriginalName();
+        //     $file->storeAs('s3',$filename);
+        // } catch (Exception $ex) {
+        //     dd($ex);
+        // }
        
     }
 }
